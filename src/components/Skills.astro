@@ -1,0 +1,17 @@
+---
+import { levels, skills, type Level } from '@/data/skills';
+---
+
+<section class="mt-10">
+  <h2 class="text-base font-semibold text-zinc-900 uppercase tracking-wider">
+    Skills
+  </h2>
+
+  <div class="mt-4 flex flex-wrap gap-2">
+    {skills.map(({ name, level }) => (
+      <span class={`px-3 py-1 rounded-full text-sm font-medium ${levels[level].badge}`}>
+        {name}
+      </span>
+    ))}
+  </div>
+</section>

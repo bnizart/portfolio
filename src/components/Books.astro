@@ -1,0 +1,22 @@
+---
+import BookCard from '@/components/BookCard.astro';
+import { books } from '@/data/books';
+
+const recent = books.slice(0, 3);
+---
+
+<section class="mt-10">
+  <h2 class="text-base font-semibold text-zinc-900 uppercase tracking-wider">
+    Reading
+  </h2>
+
+  <div class="mt-6 grid grid-cols-3 gap-4">
+    {recent.map((book) => <BookCard book={book} />)}
+  </div>
+
+  <div class="mt-6 flex justify-center">
+    <a href="/reading" class="px-5 py-2 rounded-full text-sm font-medium border border-zinc-300 text-zinc-600 hover:border-zinc-400 hover:text-zinc-900 transition-colors duration-150">
+      Voir toutes mes lectures
+    </a>
+  </div>
+</section>

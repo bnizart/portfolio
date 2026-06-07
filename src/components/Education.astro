@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import logoFac       from '@/assets/logos/fac.png';
+import logoIUT       from '@/assets/logos/iut-lens.png';
+import logoYourcenar from '@/assets/logos/yourcenar.png';
+
+type Degree = {
+  degree: string;
+  logo: ImageMetadata;
+  institution: string;
+  location: string;
+  period: string;
+};
+
+const degrees: Degree[] = [
+  {
+    degree: 'Master Informatique',
+    logo: logoFac,
+    institution: 'Faculté des sciences Jean Perrin',
+    location: 'Lens',
+    period: '2024 – 2026',
+  },
+  {
+    degree: 'Licence Informatique',
+    logo: logoFac,
+    institution: 'Faculté des sciences Jean Perrin',
+    location: 'Lens',
+    period: '2023 – 2024',
+  },
+  {
+    degree: 'BUT Informatique',
+    logo: logoIUT,
+    institution: 'IUT Informatique',
+    location: 'Lens',
+    period: '2021 – 2023',
+  },
+  {
+    degree: 'Baccalauréat Général',
+    logo: logoYourcenar,
+    institution: 'Lycée Marguerite Yourcenar',
+    location: 'Beuvry',
+    period: '2019 – 2021',
+  },
+];
+---
+
+<section class="mt-10">
+  <h2 class="text-base font-semibold text-zinc-900 uppercase tracking-wider">
+    Education
+  </h2>
+
+  <div class="mt-6 divide-y divide-zinc-100">
+    {degrees.map((item) => (
+      <div class="flex gap-4 py-5 first:pt-0">
+
+        <div class="size-10 rounded-full border border-zinc-200 bg-white flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+          <Image src={item.logo} alt={item.institution} width={32} height={32} class="size-8 object-contain" />
+        </div>
+
+        <div class="flex-1 min-w-0 flex items-center justify-between gap-4">
+          <div>
+            <p class="font-medium text-zinc-900 leading-snug">{item.degree}</p>
+            <p class="mt-0.5 text-sm text-zinc-500">{item.institution} · {item.location}</p>
+          </div>
+          <p class="text-sm text-zinc-400 shrink-0 tabular-nums">{item.period}</p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>

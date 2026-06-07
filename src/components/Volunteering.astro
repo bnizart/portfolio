@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import logoAFEV from '@/assets/logos/afev.png';
+
+const entries = [
+  {
+    role: 'Mentor AFEV',
+    organization: 'AFEV',
+    location: 'Lens',
+    period: 'Sept. 2024 – Aujourd\'hui',
+    description: 'Accompagnement scolaire et social d\'une élève de CM2 en difficulté.',
+  },
+  {
+    role: 'Mentor AFEV',
+    organization: 'AFEV',
+    location: 'Lens',
+    period: 'Nov. 2022 – Juin 2024',
+    description: 'Accompagnement scolaire et social d\'un collégien en difficulté durant sa 6ème et sa 5ème.',
+  },
+] as const;
+---
+
+<section class="mt-10">
+  <h2 class="text-base font-semibold text-zinc-900 uppercase tracking-wider">
+    Volunteering
+  </h2>
+
+  <div class="mt-6 divide-y divide-zinc-100">
+    {entries.map((entry) => (
+      <div class="flex gap-4 py-5 first:pt-0">
+
+        <div class="size-10 rounded-full border border-zinc-200 bg-white flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+          <Image src={logoAFEV} alt="AFEV" width={32} height={32} class="size-8 object-contain" />
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-medium text-zinc-900 leading-snug">{entry.role}</p>
+              <p class="mt-0.5 text-sm text-zinc-500">{entry.organization} · {entry.location}</p>
+            </div>
+            <p class="text-sm text-zinc-400 shrink-0 tabular-nums">{entry.period}</p>
+          </div>
+          <p class="mt-2 text-sm text-zinc-500 leading-relaxed">{entry.description}</p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>

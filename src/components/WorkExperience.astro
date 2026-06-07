@@ -1,0 +1,131 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import logoAdmitech from '@/assets/logos/admitech.png';
+import logoSparteo  from '@/assets/logos/sparteo.png';
+import logoViously  from '@/assets/logos/viously.png';
+import logoSSP      from '@/assets/logos/ssp.png';
+
+type Job = {
+  company: string;
+  logo?: ImageMetadata;
+  initial: string;
+  role: string;
+  location: string;
+  period: string;
+  tasks: readonly string[];
+};
+
+const jobs: Job[] = [
+  {
+    company: 'Admitech',
+    logo: logoAdmitech,
+    initial: 'A',
+    role: 'Auto-entrepreneur',
+    location: 'Lens',
+    period: 'Août 2022 – Aujourd\'hui',
+    tasks: [
+      'Création de logiciels fullstack pour différentes entreprises',
+      'Maintien et mise en place d\'infrastructure cloud',
+      'Mise à jour de logiciels existants',
+    ],
+  },
+  {
+    company: 'Sparteo',
+    logo: logoSparteo,
+    initial: 'S',
+    role: 'Développeur Backend (alternance)',
+    location: 'Lille',
+    period: 'Sept. 2024 – Sept. 2026',
+    tasks: [
+      'Amélioration du workflow de développement',
+      'Ajout de fonctionnalités internes',
+    ],
+  },
+  {
+    company: 'Viously',
+    logo: logoViously,
+    initial: 'V',
+    role: 'Développeur Backend (stage)',
+    location: 'Tourcoing',
+    period: 'Mars 2024 – Juin 2024',
+    tasks: [
+      'Amélioration du workflow de développement',
+      'Ajout de fonctionnalités internes',
+    ],
+  },
+  {
+    company: 'Viously',
+    logo: logoViously,
+    initial: 'V',
+    role: 'Développeur Backend (stage)',
+    location: 'Tourcoing',
+    period: 'Avr. 2023 – Juin 2023',
+    tasks: [
+      'Amélioration du workflow de développement',
+      'Ajout de fonctionnalités internes',
+    ],
+  },
+  {
+    company: 'SSP',
+    logo: logoSSP,
+    initial: 'S',
+    role: 'Développeur Backend (CDI)',
+    location: 'Vermelles',
+    period: 'Jan. 2019 – Jan. 2023',
+    tasks: [
+      'Création d\'une suite logicielle interne pour l\'entreprise',
+      'Maintien et mise en place d\'infrastructure cloud',
+      'Création de logiciels pour l\'ensemble de l\'entreprise (salariés, administration, finance…)',
+    ],
+  },
+];
+---
+
+<section class="mt-10">
+  <h2 class="text-base font-semibold text-zinc-900 uppercase tracking-wider">
+    Work Experience
+  </h2>
+
+  <div class="mt-6 divide-y divide-zinc-100">
+    {jobs.map((job) => (
+      <div class="flex gap-4 py-5 first:pt-0">
+
+        <!-- Logo : image si disponible, initiale sinon -->
+        <div class="size-10 rounded-full border border-zinc-200 bg-white flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+          {job.logo ? (
+            <Image
+              src={job.logo}
+              alt={job.company}
+              width={32}
+              height={32}
+              class="size-8 object-contain"
+            />
+          ) : (
+            <span class="text-sm font-semibold text-zinc-400 select-none">{job.initial}</span>
+          )}
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-medium text-zinc-900 leading-snug">{job.company}</p>
+              <p class="mt-0.5 text-sm text-zinc-500">{job.role} · {job.location}</p>
+            </div>
+            <p class="text-sm text-zinc-400 shrink-0 tabular-nums">{job.period}</p>
+          </div>
+
+          <ul class="mt-2.5 space-y-1">
+            {job.tasks.map((task) => (
+              <li class="flex gap-2 text-sm text-zinc-500">
+                <span class="text-zinc-300 shrink-0 mt-px" aria-hidden="true">·</span>
+                {task}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>

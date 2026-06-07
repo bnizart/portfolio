@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+
+@theme {
+  /* À compléter avec le design system */
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
