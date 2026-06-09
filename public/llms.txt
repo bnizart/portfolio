@@ -1,0 +1,14 @@
+# Bastien Nizart
+
+> Ingénieur logiciel basé dans les Hauts-de-France. Développeur backend spécialisé PHP/Laravel, infrastructure cloud, architecture web. Auto-entrepreneur (Admitech) et alternant.
+
+## Pages
+
+- [Accueil](https://bastien.nizart.me/): Portfolio, parcours, projets et contact
+- [Lectures](https://bastien.nizart.me/reading): Livres lus
+
+## Contact
+
+- Email: bastien@nizart.me
+- LinkedIn: https://linkedin.com/in/bastien-nizart
+- GitHub: https://github.com/bnizart
