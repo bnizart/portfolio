@@ -54,6 +54,10 @@ src/
 public/             # Assets statiques (images, fonts)
 ```
 
+## Git
+
+- **Jamais** de `Co-Authored-By: Claude` dans les commits — ni nom ni email d'un modèle AI
+
 ## Conventions
 
 - **Fichiers** : PascalCase pour composants/layouts, kebab-case pour pages/styles
