@@ -8,9 +8,12 @@ interface Props {
 }
 
 const {
-  title = 'Bastien Nizart',
-  description = 'Portfolio — développeur web',
+  title = 'Bastien Nizart | Développeur Backend',
+  description = 'Ingénieur logiciel basé dans les Hauts-de-France. Spécialisé en développement backend (PHP, Laravel), infrastructure cloud et architecture web. Auto-entrepreneur et alternant.',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://bastien.nizart.me');
+const ogImage = 'https://bastien.nizart.me/og.webp';
 ---
 
 <!doctype html>
@@ -22,10 +25,46 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bastien Nizart",
+      "url": "https://bastien.nizart.me",
+      "jobTitle": "Développeur Backend",
+      "description": description,
+      "email": "bastien@nizart.me",
+      "image": ogImage,
+      "sameAs": [
+        "https://linkedin.com/in/bastien-nizart",
+        "https://github.com/bnizart",
+        "https://git.nizart.me/bastien"
+      ]
+    })} />
+
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-zinc-50 text-zinc-900">
-    <main class="max-w-2xl mx-auto px-5 py-16 pb-32">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-zinc-900 focus:text-zinc-50 focus:rounded-lg focus:text-sm">
+      Aller au contenu principal
+    </a>
+    <main id="main-content" class="max-w-2xl mx-auto px-5 py-16 pb-32">
       <slot />
     </main>
     <DockNav />
