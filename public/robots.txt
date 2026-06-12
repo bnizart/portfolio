@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://bastien.nizart.me/sitemap-index.xml
